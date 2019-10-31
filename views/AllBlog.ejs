@@ -1,0 +1,38 @@
+<% include partials/header %>
+<div class="ui main text container">
+    <div class="ui huge header">
+        RESTful Blog App
+    </div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+                <% blogs.forEach((x)=>{ %>
+                    <div class="item">
+                        <div class="image">
+                                <img src="<%= x.image %>">
+                        </div>
+                        <div class="content">
+                                <a class="header" href="/blog/<%=x._id%>"><%= x.title %></a>
+                                <div class="meta">
+                                        <p><%= x.date.toDateString() %></p>
+                                </div>
+                                <div class="description">
+                                        <p><%- x.body.substring(0,150) %>...</p>
+                                </div>  
+                                <div class="extra">
+                                        <a class="ui floated basic voilet button" href="blog/<%=x._id%>">
+                                            Show More
+                                            <i class="right chevron icon"></i>
+                                        </a>
+                                </div>                              
+                                
+
+                        </div>
+                    </div>
+            
+                <% }) %>
+        </div>
+    </div>
+
+    
+</div>
+<% include partials/footer %>
